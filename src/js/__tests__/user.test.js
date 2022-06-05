@@ -1,5 +1,5 @@
-import loadUser from '../user';
-import httpGet from '../http';
+import getLevel from '../user';
+import fetchData from '../http';
 
 jest.mock('../http');
 
@@ -7,16 +7,23 @@ beforeEach(() => {
   jest.resetAllMocks();
 });
 
-test('should call loadUser once', async () => {
-  // const promise = new Promise((resolve, reject) => {})
-  httpGet.mockReturnValue('promise');
+test('getLevel send', () => {
+  fetchData.mockReturnValue({});
 
-  const response = await loadUser(1);
-  expect(response).toEqual({
-    completed: false,
-    id: 1,
-    title: 'delectus aut autem',
-    userId: 1,
-  });
-  expect(httpGet).toBeCalledWith('https://jsonplaceholder.typicode.com/todos/1');
+  getLevel(1);
+  expect(fetchData).toBeCalledWith('https://server/user/1');
+});
+
+test('getLevel status ok', () => {
+  fetchData.mockReturnValue({ status: 'ok', level: '3' });
+
+  const result = getLevel(3);
+  expect(result).toBe('Ваш текущий уровень: 3');
+});
+
+test('getLevel status false', () => {
+  fetchData.mockReturnValue({ status: 'false' });
+
+  const result = getLevel(3);
+  expect(result).toBe('Информация об уровне временно недоступна');
 });

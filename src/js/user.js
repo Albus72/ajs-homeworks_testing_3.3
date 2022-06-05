@@ -1,18 +1,11 @@
-import httpGet from "./http.js";
+import fetchData from './http';
 
-async function loadUser(userId) {
-  console.log("eeeeeeeeeeeeeeee");
-  const response = await httpGet(`https://jsonplaceholder.typicode.com/todos/${userId}`);
-  console.log(response)
-  if (response && response.ok) {
-    console.log('ok')
-    const data = response.json();
-    return data;
+export default function getLevel(userId) {
+  const response = fetchData(`https://server/user/${userId}`);
+
+  if (response.status === 'ok') {
+    return `Ваш текущий уровень: ${response.level}`;
   }
-  console.log('not ok')
-  return 0;
+
+  return 'Информация об уровне временно недоступна';
 }
-
-console.log(loadUser(1));
-
-export default loadUser;
