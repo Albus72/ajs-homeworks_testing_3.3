@@ -1,5 +1,5 @@
 {
-  "name": "ajs-homeworks_testing_3.1",
+  "name": "ajs-homeworks_testing_3.3",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Albus72/ajs-homeworks_testing_3.1.git"
+    "url": "git+https://github.com/Albus72/ajs-homeworks_testing_3.3.git"
   },
   "author": "albus72",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Albus72/ajs-homeworks_testing_3.1/issues"
+    "url": "https://github.com/Albus72/ajs-homeworks_testing_3.3/issues"
   },
-  "homepage": "https://github.com/Albus72/ajs-homeworks_testing_3.1#readme",
+  "homepage": "https://github.com/Albus72/ajs-homeworks_testing_3.3#readme",
   "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.18.2",
